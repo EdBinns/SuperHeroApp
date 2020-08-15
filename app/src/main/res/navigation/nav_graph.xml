@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navHeroFragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/navHeroFragment"
+        android:name="com.edbinns.superheroapp.View.Fragments.SuperHeroFragment"
+        android:label="fragment_hero"
+        tools:layout="@layout/fragment_super_hero">
+
+        <action
+            android:id="@+id/action_heroFragment_to_favoriteHeroFragment"
+            app:destination="@+id/navFavoriteHeroFragment"/>
+        <action
+            android:id="@+id/action_navHeroFragment_to_superheroDetailFragmentDialog"
+            app:destination="@id/superheroDetailFragmentDialog" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navFavoriteHeroFragment"
+        android:name="com.edbinns.superheroapp.View.Fragments.FavoriteHeroFragment"
+        android:label="fragment_favorite_hero"
+        tools:layout="@layout/fragment_favorite_hero">
+
+        <action
+            android:id="@+id/action_favoriteHeroFragment_to_ComicsFragment"
+            app:destination="@+id/navComicsFragment"
+            />
+        <action
+            android:id="@+id/action_navFavoriteHeroFragment_to_superheroDetailFragmentDialog"
+            app:destination="@id/superheroDetailFragmentDialog" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navComicsFragment"
+        android:name="com.edbinns.superheroapp.View.Fragments.ComicsFragment"
+        android:label="fragment_comics"
+        tools:layout="@layout/fragment_comics">
+
+        <action
+            android:id="@+id/action_heroFragment_to_favoriteHeroFragment"
+            app:destination="@+id/comicsDetailFragmentDialog"
+            />
+    </fragment>
+
+    <dialog
+        android:id="@+id/superheroDetailFragmentDialog"
+        android:name="com.edbinns.superheroapp.View.Fragments.SuperHeroDetailDialogFragment"
+        android:label="SpeakerDetailFragmentDialog"
+        tools:layout="@layout/fragment_super_hero_detail_dialog"/>
+
+    <dialog
+        android:id="@+id/comicsDetailFragmentDialog"
+        android:name="com.edbinns.superheroapp.View.Fragments.ComicsDetailDialogFragment"
+        android:label="ScheduleDetailFragmentDialog"
+        tools:layout="@layout/fragment_comics_detail_dialog"/>
+
+</navigation>

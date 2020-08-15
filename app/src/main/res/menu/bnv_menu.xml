@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navHomeFragment"
+        android:title="Heroes"
+        android:icon="@drawable/hero"/>
+    <item
+        android:id="@+id/navSpeakersFragment"
+        android:title="Heroes favoritos"
+        android:icon="@drawable/favorite" />
+    <item
+        android:id="@+id/navScheduleFragment"
+        android:title="Comics"
+        android:icon="@drawable/comic" />
+</menu>

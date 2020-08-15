@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SuperHeroApp</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="username">Correo</string>
+    <string name="password">Contraseña</string>
+    <string name="register">Registrarse</string>
+    <string name="singin">Iniciar sesión</string>
+
+
+    <string name="heroName">Nombre del héroe</string>
+    <string name="hero">Superhéroe</string>
+</resources>
