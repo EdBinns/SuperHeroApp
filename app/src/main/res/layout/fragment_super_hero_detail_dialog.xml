@@ -1,14 +1,635 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".View.Fragments.SuperHeroDetailDialogFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorPrimaryDark">
+        <Toolbar
+            android:id="@+id/toolbarConference"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
 
-</FrameLayout>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimary"
+                        android:alpha="0.5"/>
+                    <TextView
+                        android:id="@+id/tvItemScheduleTituloConferencia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/heroName"
+                        android:textSize="25sp"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:layout_margin="20dp"
+                        android:gravity="center_horizontal"
+                        android:layout_centerInParent="true"/>
+                </RelativeLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="1dp"
+                    android:layout_margin="15dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:background="@drawable/shape_parrafo">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Biography"
+                            android:textSize="@dimen/itemTitulo"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/colorPrimaryDark" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tvFullName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Full name:  "
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvFullNameComplete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Name"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:layout_toEndOf="@id/tvFullName"
+                                android:ellipsize="end"
+                                android:lines="1"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tvAlterEgos"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Alter Egos:  "
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvAlterEgosComplete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="AlterEgos"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:layout_toEndOf="@id/tvAlterEgos"
+                                android:ellipsize="end"
+                                android:lines="1"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tvAliases"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Aliases:  "
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvAliasesComplete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="aliases"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:layout_toEndOf="@id/tvAliases"
+                                android:ellipsize="end"
+                                android:lines="1"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tvPlaceOfBirth"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Place of birth:  "
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvPlaceOfBirthComplete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="PlaceOfBirth"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:layout_toEndOf="@id/tvPlaceOfBirth"
+                                android:ellipsize="end"
+                                android:lines="1"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tvFirstAppearance"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="First appearance:  "
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvFirstAppearanceComplete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="FirstAppearance"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:layout_toEndOf="@id/tvFirstAppearance"
+                                android:ellipsize="end"
+                                android:lines="1"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tvPublisher"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Publisher:  "
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvpublisherComplete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="publisher"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:layout_toEndOf="@id/tvPublisher"
+                                android:ellipsize="end"
+                                android:lines="1"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tvAlignment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Alignment:  "
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvAlignmentComplete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="alignment"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:layout_toEndOf="@id/tvAlignment"
+                                android:ellipsize="end"
+                                android:lines="1"/>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="1dp"
+                    android:layout_margin="15dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:background="@drawable/shape_parrafo">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Appearance"
+                            android:textSize="@dimen/itemTitulo"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/colorPrimaryDark" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tvGender"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Gender:  "
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvGenderComplete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="gender"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:layout_toEndOf="@id/tvGender"
+                                android:ellipsize="end"
+                                android:lines="1"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tvRace"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Race:  "
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvRaceComplete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="race"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:layout_toEndOf="@id/tvRace"
+                                android:ellipsize="end"
+                                android:lines="1"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tvHeight"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Height:  "
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvHeightComplete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="height"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:layout_toEndOf="@id/tvHeight"
+                                android:ellipsize="end"
+                                android:lines="1"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tvWeight"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Weight:  "
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvWeightComplete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="weight"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:layout_toEndOf="@id/tvWeight"
+                                android:ellipsize="end"
+                                android:lines="1"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tvEyeColor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Eye Color:  "
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvEyeColorComplete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="eye-color"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:layout_toEndOf="@id/tvEyeColor"
+                                android:ellipsize="end"
+                                android:lines="1"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tvHairColor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Hair Color:  "
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvHairColorComplete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="hair-color"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:layout_toEndOf="@id/tvHairColor"
+                                android:ellipsize="end"
+                                android:lines="1"/>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="1dp"
+                    android:layout_margin="15dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:background="@drawable/shape_parrafo">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Powerstats"
+                            android:textSize="@dimen/itemTitulo"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/colorPrimaryDark" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tvIntelligence"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="intelligence:  "
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvIntelligenceComplete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="intelligence"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:layout_toEndOf="@id/tvIntelligence"
+                                android:ellipsize="end"
+                                android:lines="1"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tvStrength"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Strength:  "
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvStrengthComplete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="strength"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:layout_toEndOf="@id/tvStrength"
+                                android:ellipsize="end"
+                                android:lines="1"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tvHairColor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Hair Color:  "
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvHairColorComplete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="hair-color"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:layout_toEndOf="@id/tvIntelligence"
+                                android:ellipsize="end"
+                                android:lines="1"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tvHairColor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Hair Color:  "
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvHairColorComplete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="hair-color"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:layout_toEndOf="@id/tvIntelligence"
+                                android:ellipsize="end"
+                                android:lines="1"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tvHairColor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Hair Color:  "
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvHairColorComplete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="hair-color"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:layout_toEndOf="@id/tvIntelligence"
+                                android:ellipsize="end"
+                                android:lines="1"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tvHairColor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Hair Color:  "
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvHairColorComplete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="hair-color"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/itemSubTitulo"
+                                android:layout_toEndOf="@id/tvIntelligence"
+                                android:ellipsize="end"
+                                android:lines="1"/>
+                        </RelativeLayout>
+
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="1dp"
+                    android:layout_margin="15dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:background="@drawable/shape_parrafo">
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="1dp"
+                    android:layout_margin="15dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:background="@drawable/shape_parrafo">
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

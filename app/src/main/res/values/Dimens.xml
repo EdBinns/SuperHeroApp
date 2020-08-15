@@ -4,7 +4,7 @@
     <dimen name="toolbarAlto">30dp</dimen>
 
     <dimen name="logintext">18sp</dimen>
-    <dimen name="itemTitulo">30sp</dimen>
-    <dimen name="itemSubTitulo">20sp</dimen>
+    <dimen name="itemTitulo">25sp</dimen>
+    <dimen name="itemSubTitulo">18sp</dimen>
 
 </resources>
