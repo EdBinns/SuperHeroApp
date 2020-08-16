@@ -7,4 +7,8 @@
     <dimen name="itemTitulo">25sp</dimen>
     <dimen name="itemSubTitulo">18sp</dimen>
 
+    <dimen name="dimesmargine">15sp</dimen>
+    <dimen name="dimesmargintop">8sp</dimen>
+
+
 </resources>

@@ -1,9 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".View.Activitys.RegisterActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark">
+        <Toolbar
+            android:id="@+id/toolbarMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/register"
+                android:textColor="@color/colorBackgroudWhite"
+                android:textSize="@dimen/itemTitulo"
+                android:textStyle="bold" />
+
+        </Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <EditText
+            android:id="@+id/etNameRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/name"
+            android:textColorHint="@color/colorAccent"
+            android:layout_marginTop="@dimen/dimesmargine"
+            android:layout_marginEnd="@dimen/dimesmargine"
+            android:layout_marginStart="@dimen/dimesmargine"
+            />
+
+        <EditText
+            android:id="@+id/etEmailRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/username"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/colorAccent"
+            android:layout_marginTop="@dimen/dimesmargintop"
+            android:layout_marginEnd="@dimen/dimesmargine"
+            android:layout_marginStart="@dimen/dimesmargine"/>
+
+        <EditText
+            android:id="@+id/etPasswordRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textColorHint="@color/colorAccent"
+            android:layout_marginTop="@dimen/dimesmargintop"
+            android:layout_marginEnd="@dimen/dimesmargine"
+            android:layout_marginStart="@dimen/dimesmargine"/>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="317dp"
+            android:layout_height="48dp"
+            android:background="@drawable/border_desing"
+            android:hint="@string/register"
+            android:textColorHint="@color/colorAccent"
+            android:textSize="@dimen/logintext"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dimesmargintop"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="58dp"
+                android:layout_height="54dp"
+                android:layout_marginStart="136dp"
+                android:layout_marginBottom="36dp"
+                android:background="@color/colorBackgroudWhite"
+                android:layout_gravity="bottom"
+                app:srcCompat="@drawable/gmail"
+                android:layout_alignParentBottom="true"/>
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="67dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="136dp"
+                android:layout_marginBottom="36dp"
+                android:background="@color/colorBackgroudWhite"
+                app:srcCompat="@drawable/facebook"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@id/imageButton"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
