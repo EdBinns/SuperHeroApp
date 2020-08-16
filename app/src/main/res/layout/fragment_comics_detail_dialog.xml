@@ -22,6 +22,103 @@
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_parrafo">
+
+                <TextView
+                    android:id="@+id/tvTitleComic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Title"
+                    android:textSize="@dimen/itemTitulo"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    />
+
+                <TextView
+                    android:id="@+id/tvPublisherComic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Publisher"
+                    android:textSize="@dimen/itemSubTitulo"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="normal"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:layout_below="@id/tvTitleComic"
+                    android:layout_centerInParent="true"
+                    />
+
+                <TextView
+                    android:id="@+id/tvDescriptionComic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textSize="@dimen/itemSubTitulo"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="normal"
+                    android:ellipsize="end"
+                    android:lines="3"
+                    android:layout_below="@id/tvPublisherComic"
+                    android:layout_centerInParent="true"
+                    />
+
+                <TextView
+                    android:id="@+id/tvCreatorsComic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Creators"
+                    android:textSize="@dimen/itemSubTitulo"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="normal"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:layout_below="@id/tvDescriptionComic"
+                    android:layout_centerInParent="true"
+                    />
+                <TextView
+                    android:id="@+id/tvDateComic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="dd/mm/yy"
+                    android:textSize="@dimen/itemSubTitulo"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="normal"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:layout_below="@id/tvCreatorsComic"
+                    android:layout_centerInParent="true"
+                    />
+                <TextView
+                    android:id="@+id/tvPriceComic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$0.00"
+                    android:textSize="@dimen/itemSubTitulo"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="normal"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:layout_below="@id/tvDateComic"
+                    android:layout_centerInParent="true"
+                    />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
 
     </FrameLayout>
 
