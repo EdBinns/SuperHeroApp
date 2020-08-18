@@ -2,6 +2,7 @@
     <string name="app_name">SuperHeroApp</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="error_while_connecting_to_the_server">Error while connecting to the server</string>
 
     <string name="name">Nombre Completo</string>
     <string name="username">Correo</string>
