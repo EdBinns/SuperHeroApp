@@ -67,7 +67,7 @@
             android:layout_marginStart="@dimen/dimesmargine"/>
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnRegister"
             android:layout_width="317dp"
             android:layout_height="48dp"
             android:background="@drawable/border_desing"
@@ -83,25 +83,18 @@
 
             <ImageButton
                 android:id="@+id/imageButton"
-                android:layout_width="58dp"
-                android:layout_height="54dp"
-                android:layout_marginStart="136dp"
-                android:layout_marginBottom="36dp"
-                android:background="@color/colorBackgroudWhite"
-                android:layout_gravity="bottom"
-                app:srcCompat="@drawable/gmail"
-                android:layout_alignParentBottom="true"/>
-
-            <ImageButton
-                android:id="@+id/imageButton2"
-                android:layout_width="67dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="136dp"
-                android:layout_marginBottom="36dp"
-                android:background="@color/colorBackgroudWhite"
-                app:srcCompat="@drawable/facebook"
+                android:layout_width="131dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_toEndOf="@id/imageButton"/>
+                android:layout_gravity="center|bottom|center_vertical|"
+                android:layout_marginStart="140dp"
+                android:layout_marginEnd="140dp"
+                android:layout_marginBottom="53dp"
+                android:background="@color/colorBackgroudWhite"
+                app:srcCompat="@drawable/gmail" />
+
         </RelativeLayout>
 
     </LinearLayout>
