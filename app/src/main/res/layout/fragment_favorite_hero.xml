@@ -11,7 +11,7 @@
         android:layout_height="match_parent"/>
 
     <RelativeLayout
-        android:id="@+id/rlBase"
+        android:id="@+id/rlFvorites"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <View
