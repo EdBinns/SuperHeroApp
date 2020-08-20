@@ -43,7 +43,7 @@
             android:drawableStart="@drawable/ic_person"
             android:drawableLeft="@drawable/ic_person"
             android:hint="@string/username"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.521"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
             android:layout_marginTop="60dp"
             android:drawableStart="@drawable/ic_key"
             android:hint="@string/password"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.521"
             app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +76,7 @@
             app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnRegisterLogIn"
             android:layout_width="317dp"
             android:layout_height="48dp"
             android:background="@drawable/border_desing"
@@ -101,6 +101,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/gmail" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/rlProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.4"
+            android:background="@color/colorBackgroudWhite" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
 </FrameLayout>

@@ -1,7 +1,5 @@
 package com.edbinns.superheroapp.Models.User
 
-data class User(
-    val name : String,
-    val email: String,
-    val password: String
-)
+class User(var name : String = "", var email: String = "", var password: String = "", var provider: String = " "){
+
+}

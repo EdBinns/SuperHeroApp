@@ -12,4 +12,5 @@
         android:id="@+id/navScheduleFragment"
         android:title="Comics"
         android:icon="@drawable/comic" />
+
 </menu>
