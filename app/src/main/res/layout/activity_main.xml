@@ -15,7 +15,8 @@
         <Toolbar
             android:id="@+id/toolbarMain"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            tools:targetApi="lollipop">
 
         </Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
