@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setActionBar(findViewById(R.id.toolbarMain))
         configNav()
 
         val bundle = intent.extras
