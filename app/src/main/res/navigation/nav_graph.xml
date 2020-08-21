@@ -15,9 +15,7 @@
         <action
             android:id="@+id/action_heroFragment_to_favoriteHeroFragment"
             app:destination="@+id/navFavoriteHeroFragment"/>
-        <action
-            android:id="@+id/action_navHeroFragment_to_superheroDetailFragmentDialog"
-            app:destination="@id/superheroDetailFragmentDialog" />
+
 
     </fragment>
 
@@ -31,9 +29,7 @@
             android:id="@+id/action_favoriteHeroFragment_to_ComicsFragment"
             app:destination="@+id/navComicsFragment"
             />
-        <action
-            android:id="@+id/action_navFavoriteHeroFragment_to_superheroDetailFragmentDialog"
-            app:destination="@id/superheroDetailFragmentDialog" />
+
     </fragment>
 
     <fragment
@@ -43,7 +39,7 @@
         tools:layout="@layout/fragment_comics">
 
         <action
-            android:id="@+id/action_heroFragment_to_favoriteHeroFragment"
+            android:id="@+id/action_ComicsFragment_to_ComicsDetailDialogFragment"
             app:destination="@+id/comicsDetailFragmentDialog"
             />
     </fragment>

@@ -16,7 +16,7 @@ class SplashscreenActivity : AppCompatActivity() {
         val animacion = AnimationUtils.loadAnimation(this, R.anim.anim_splashscreen)
         imageSplash.startAnimation(animacion)
 
-        val intent = Intent(this, LogInActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
 
         animacion.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationRepeat(animation: Animation?) {
