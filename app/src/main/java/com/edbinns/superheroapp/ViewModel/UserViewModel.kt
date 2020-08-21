@@ -27,7 +27,7 @@ class UserViewModel : ViewModel() {
     var user : MutableLiveData<User> = MutableLiveData()
 
     fun registerUser(email: String, password: String, name: String, provider: String) {
-        val user = User(name, email, password, provider)
+        val user = User(email,name,  password, provider)
         userReporitory.setUserInFirebase(user)
         processFinished()
     }
@@ -35,6 +35,7 @@ class UserViewModel : ViewModel() {
     fun findUserByID(id : String){
         userReporitory.findUserByID(id)
         user = userReporitory.getUser()
+        println("Print de viewmodel  ${user.value?.email}" )
     }
 
     fun getMessage()  {

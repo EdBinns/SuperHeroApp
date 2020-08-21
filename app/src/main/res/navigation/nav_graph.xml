@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/navHeroFragment"
-        android:name="com.edbinns.superheroapp.View.Fragments.SuperHeroFragment"
+        android:name="com.edbinns.superheroapp.View.UI.Fragments.SuperHeroFragment"
         android:label="fragment_hero"
         tools:layout="@layout/fragment_super_hero">
 
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/navFavoriteHeroFragment"
-        android:name="com.edbinns.superheroapp.View.Fragments.FavoriteHeroFragment"
+        android:name="com.edbinns.superheroapp.View.UI.Fragments.FavoriteHeroFragment"
         android:label="fragment_favorite_hero"
         tools:layout="@layout/fragment_favorite_hero">
 
@@ -38,7 +38,7 @@
 
     <fragment
         android:id="@+id/navComicsFragment"
-        android:name="com.edbinns.superheroapp.View.Fragments.ComicsFragment"
+        android:name="com.edbinns.superheroapp.View.UI.Fragments.ComicsFragment"
         android:label="fragment_comics"
         tools:layout="@layout/fragment_comics">
 
@@ -50,13 +50,13 @@
 
     <dialog
         android:id="@+id/superheroDetailFragmentDialog"
-        android:name="com.edbinns.superheroapp.View.Fragments.SuperHeroDetailDialogFragment"
+        android:name="com.edbinns.superheroapp.View.UI.Fragments.SuperHeroDetailDialogFragment"
         android:label="SpeakerDetailFragmentDialog"
         tools:layout="@layout/fragment_super_hero_detail_dialog"/>
 
     <dialog
         android:id="@+id/comicsDetailFragmentDialog"
-        android:name="com.edbinns.superheroapp.View.Fragments.ComicsDetailDialogFragment"
+        android:name="com.edbinns.superheroapp.View.UI.Fragments.ComicsDetailDialogFragment"
         android:label="ScheduleDetailFragmentDialog"
         tools:layout="@layout/fragment_comics_detail_dialog"/>
 

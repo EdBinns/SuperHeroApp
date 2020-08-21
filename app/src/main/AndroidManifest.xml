@@ -12,16 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.Activitys.RegisterActivity" />
-        <activity android:name=".View.Activitys.SplashscreenActivity">
+        <activity android:name="com.edbinns.superheroapp.View.UI.Activitys.RegisterActivity" />
+        <activity android:name="com.edbinns.superheroapp.View.UI.Activitys.SplashscreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.Activitys.LogInActivity" />
-        <activity android:name=".View.Activitys.MainActivity"/>
+        <activity android:name="com.edbinns.superheroapp.View.UI.Activitys.LogInActivity" />
+        <activity android:name="com.edbinns.superheroapp.View.UI.Activitys.MainActivity"/>
     </application>
 
 </manifest>

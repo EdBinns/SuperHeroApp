@@ -26,7 +26,7 @@ class ClientService {
         val client = OkHttpClient.Builder().build()
         return getService(COMICS_BASE_URL, client)
     }
-    fun getService(base_url : String, okHttpClient : OkHttpClient): ApiService {
+    private fun getService(base_url : String, okHttpClient : OkHttpClient): ApiService {
         //El okHttpClient permite que la app tenga un mejor rendimiento a la hora de realizar consultas
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(base_url)

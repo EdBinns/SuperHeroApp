@@ -1,10 +1,8 @@
-package com.edbinns.superheroapp.View.Activitys
+package com.edbinns.superheroapp.View.UI.Activitys
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.view.get
-import androidx.core.view.size
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.edbinns.superheroapp.R

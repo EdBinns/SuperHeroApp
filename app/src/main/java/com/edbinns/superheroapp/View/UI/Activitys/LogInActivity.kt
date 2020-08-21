@@ -1,10 +1,11 @@
-package com.edbinns.superheroapp.View.Activitys
+package com.edbinns.superheroapp.View.UI.Activitys
 
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AlertDialog
@@ -20,7 +21,6 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_log_in.*
-import kotlinx.android.synthetic.main.activity_register.*
 
 class LogInActivity : AppCompatActivity() {
 
@@ -31,6 +31,7 @@ class LogInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
         userViewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
+        observeViewModel()
         session()
         setUp()
     }
@@ -39,29 +40,36 @@ class LogInActivity : AppCompatActivity() {
     fun setUp(){
 
         btnRegisterLogIn.setOnClickListener {
+            observeViewModel()
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
 
         btnLogIn.setOnClickListener {
-            rlProgressBar.visibility = View.VISIBLE
+
             val email = etEmail.text.toString()
             val password = etPassword.text.toString()
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 userViewModel.findUserByID(email)
-                val user = userViewModel.user.value
-                if (user != null) {
-                    FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener {
-                            if (it.isSuccessful) {
-                                starApp(it.result?.user?.email.toString() ?: "", Constants.BASIC_AUHT)
-                            } else {
-                                println("${it.exception}")
-                                showAlert("A problem has occurred with your log in ${it.exception?.message}")
+                rlProgressBar.visibility = View.VISIBLE
+                Handler().postDelayed({
+                    val user = userViewModel.user.value
+                    println("Correo ${user?.email}")
+                    if (user != null) {
+                        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                            .addOnCompleteListener {
+                                if (it.isSuccessful) {
+                                   observeViewModel()
+                                    starApp(it.result?.user?.email.toString() ?: "", Constants.BASIC_AUHT)
+                                } else {
+                                   observeViewModel()
+                                    showAlert("A problem has occurred with your log in ${it.exception?.message}")
+                                }
                             }
-                        }
-                } else showAlert("You do not have an account registered in the app yet")
-                observeViewModel()
+                    } else {
+                        showAlert("You do not have an account registered in the app yet")
+                    }
+                }, 5000)
             }
         }
 
@@ -85,6 +93,7 @@ class LogInActivity : AppCompatActivity() {
         val provider =  prefs.getString("provider", null)
 
         if(email != null && provider != null ){
+            observeViewModel()
             starApp(email,provider)
         }
     }
@@ -95,9 +104,11 @@ class LogInActivity : AppCompatActivity() {
         builder.setPositiveButton("Aceptar", null)
         val dialog : AlertDialog = builder.create()
         dialog.show()
+
     }
 
     fun starApp(email:  String, providers : String){
+        observeViewModel()
         val intent = Intent(this, MainActivity::class.java).apply {
             putExtra("email", email)
             putExtra("providers", providers)
@@ -115,20 +126,21 @@ class LogInActivity : AppCompatActivity() {
                 val account = task.getResult(ApiException::class.java)
                 if (account != null) {
                     val credential = GoogleAuthProvider.getCredential(account.idToken, null)
-                    println("Display name ${account.displayName}")
+
                     FirebaseAuth.getInstance().signInWithCredential(credential)
                         .addOnCompleteListener {
                             if (it.isSuccessful) {
                                 userViewModel.findUserByID(account.email ?: "")
-                                val user = userViewModel.user.value
-                                if (user != null) {
-                                    starApp(account.email ?: "", Constants.GOOGLE_AUTH)
-                                } else {
-                                    userViewModel.registerUser(account.email!!, "--", account.displayName!!, Constants.GOOGLE_AUTH)
-                                    starApp(account.email ?: "", Constants.GOOGLE_AUTH)
-                                }
+                                Handler().postDelayed({
+                                    val user = userViewModel.user.value
+                                    if (user != null) {
+                                        starApp(account.email ?: "", Constants.GOOGLE_AUTH)
+                                    } else {
+                                        userViewModel.registerUser(account.email!!, "--", account.displayName!!, Constants.GOOGLE_AUTH)
+                                        starApp(account.email ?: "", Constants.GOOGLE_AUTH)
+                                    }
+                                }, 5000)
                             } else showAlert("A problem has occurred with your log in")
-                            observeViewModel()
                         }
                 }
             } catch (e: ApiException) {

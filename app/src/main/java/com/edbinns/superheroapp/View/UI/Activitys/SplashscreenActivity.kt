@@ -1,4 +1,4 @@
-package com.edbinns.superheroapp.View.Activitys
+package com.edbinns.superheroapp.View.UI.Activitys
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

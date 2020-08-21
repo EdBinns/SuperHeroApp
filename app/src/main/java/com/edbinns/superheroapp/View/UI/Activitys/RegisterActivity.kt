@@ -1,14 +1,14 @@
-package com.edbinns.superheroapp.View.Activitys
+package com.edbinns.superheroapp.View.UI.Activitys
 
 import android.content.ContentValues
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.edbinns.superheroapp.Models.User.User
 import com.edbinns.superheroapp.NetWork.Constants.BASIC_AUHT
@@ -37,23 +37,28 @@ class RegisterActivity : AppCompatActivity() {
             if(email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty()){
                 if(password.length >= 6){
                     userViewModel.findUserByID(email)
-                    val user = userViewModel.user.value
-                    if(user != null){
-                        showAlert("There is already an account registered to this email $email")
-                    }else{
-                        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener {
-                            if(it.isSuccessful){
-                                userViewModel.registerUser(email,password,name, BASIC_AUHT)
-                                starApp(it.result?.user?.email.toString() ?: "",BASIC_AUHT)
-                            }else{
-                                showAlert("A problem has occurred with your registration")
-                            }
+                    Handler().postDelayed({
+                        val user = userViewModel.user.value
+                        if (user != null) {
+                            observeViewModel()
+                            showAlert("There is already an account registered to this email $email")
+                        } else {
+                            FirebaseAuth.getInstance()
+                                .createUserWithEmailAndPassword(email, password)
+                                .addOnCompleteListener {
+                                    if (it.isSuccessful) {
+                                        observeViewModel()
+                                        userViewModel.registerUser(email, password, name, BASIC_AUHT)
+                                        starApp(it.result?.user?.email.toString() ?: "", BASIC_AUHT)
+                                    } else {
+                                        observeViewModel()
+                                        showAlert("A problem has occurred with your registration")
+                                    }
+                                }
                         }
-                    }
-
-                }else showAlert("The password must be greater than or equal to 6 characters")
+                    }, 5000)
+                } else showAlert("The password must be greater than or equal to 6 characters")
             }
-            observeViewModel()
         }
     }
 

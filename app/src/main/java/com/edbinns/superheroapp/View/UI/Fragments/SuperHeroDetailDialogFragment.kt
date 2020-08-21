@@ -1,4 +1,4 @@
-package com.edbinns.superheroapp.View.Fragments
+package com.edbinns.superheroapp.View.UI.Fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
