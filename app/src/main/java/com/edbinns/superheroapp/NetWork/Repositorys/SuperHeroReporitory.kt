@@ -20,13 +20,14 @@ class SuperHeroReporitory{
 
     fun callSuperHeroApi(id : String) {
         val client = ClientService.getInstance()
-        var superHero : SuperHero? = null
+        var hero : SuperHero? = null
        client?.getSuperHeroService()?.getSuperHeroInfo(id)?.enqueue(object : Callback<SuperHero>{
            override fun onResponse(call: Call<SuperHero>, response: Response<SuperHero>) {
                if(response.isSuccessful){
-                   superHero = response.body()
+                   hero = response.body()
                }
-               superhero.value = superHero
+               println("AlterEgos    ${hero?.biography?.alterEgos}")
+               superhero.value = hero
            }
            override fun onFailure(call: Call<SuperHero>, t: Throwable) {
                Log.e("ERROR: ", t.message)
