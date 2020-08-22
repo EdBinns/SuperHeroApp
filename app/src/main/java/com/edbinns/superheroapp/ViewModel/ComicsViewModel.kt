@@ -15,11 +15,11 @@ class ComicsViewModel : ViewModel() {
     fun refresh(){
         callComics()
         comics = comicsRepository.getListComics()
+        processFinished()
     }
 
     private fun callComics(){
         comicsRepository.callNewComicsAPI()
-        processFinished()
     }
 
     fun processFinished() {

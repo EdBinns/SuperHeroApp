@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorPrimaryDark">
         <Toolbar
-            android:id="@+id/toolbarConference"
+            android:id="@+id/toolbarComic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.appbar.AppBarLayout>

@@ -42,7 +42,6 @@ class ComicsFragment : Fragment() , ItemListener<Comic> {
         }
 
         observeViewModel()
-
     }
 
 

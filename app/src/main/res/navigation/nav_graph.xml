@@ -15,6 +15,11 @@
             android:id="@+id/action_heroFragment_to_favoriteHeroFragment"
             app:destination="@+id/navFavoriteHeroFragment"/>
 
+        <action
+            android:id="@+id/action_heroFragment_to_superheroDetailDialogFragment"
+            app:destination="@+id/superheroDetailFragmentDialog"
+            />
+
 
     </fragment>
 
@@ -27,6 +32,11 @@
         <action
             android:id="@+id/action_favoriteHeroFragment_to_ComicsFragment"
             app:destination="@+id/navComicsFragment"
+            />
+
+        <action
+            android:id="@+id/action_favoriteFragment_to_superheroDetailDialogFragment"
+            app:destination="@+id/superheroDetailFragmentDialog"
             />
 
     </fragment>

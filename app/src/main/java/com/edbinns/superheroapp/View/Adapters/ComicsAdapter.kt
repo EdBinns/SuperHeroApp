@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.edbinns.superheroapp.Models.Comics.Comic
 import com.edbinns.superheroapp.R
+import kotlinx.android.synthetic.main.fragment_comics_detail_dialog.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -25,7 +26,6 @@ class ComicsAdapter(val comicListener: ItemListener<Comic>) : RecyclerView.Adapt
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val comic = listComics[position]
-
         holder.tvComicTitle.text = comic.title
         holder.tvPublisherComic.text = comic.publisher
         holder.tvDateComic.text = comic.release_date
@@ -33,6 +33,7 @@ class ComicsAdapter(val comicListener: ItemListener<Comic>) : RecyclerView.Adapt
         holder.itemView.setOnClickListener {
             comicListener.onItemClicked(comic, position)
         }
+
     }
 
     fun updateData(data: List<Comic>) {
@@ -42,8 +43,8 @@ class ComicsAdapter(val comicListener: ItemListener<Comic>) : RecyclerView.Adapt
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvComicTitle = itemView.findViewById<TextView>(R.id.tvTitleComic)
-        val tvPublisherComic = itemView.findViewById<TextView>(R.id.tvPublisherComic)
-        val tvDateComic = itemView.findViewById<TextView>(R.id.tvDateComic)
+        val tvComicTitle= itemView.findViewById<TextView>(R.id.tvItemTitleComic)
+        val tvPublisherComic= itemView.findViewById<TextView>(R.id.tvItemPublisher)
+        val tvDateComic = itemView.findViewById<TextView>(R.id.tvReleaseDate)
     }
 }

@@ -2,9 +2,8 @@ package com.edbinns.superheroapp.NetWork.RretrofitClient
 
 import com.edbinns.superheroapp.Models.Comics.ComicResponse
 import com.edbinns.superheroapp.Models.SuperHero.SuperHero
-import retrofit2.*
+import retrofit2.Call
 import retrofit2.http.*
-import retrofit2.Callback
 
 
 interface ApiService {
