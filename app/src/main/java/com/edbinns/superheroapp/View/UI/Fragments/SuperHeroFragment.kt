@@ -8,8 +8,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.edbinns.superheroapp.Models.SuperHero.SuperHero
 import com.edbinns.superheroapp.R
 import com.edbinns.superheroapp.ViewModel.SuperHeroViewModel
@@ -30,9 +32,7 @@ class SuperHeroFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(SuperHeroViewModel::class.java)
         listener()
         viewModel.refreshHero()
-        Handler().postDelayed({
-            observeViewModel()
-        }, 3000)
+        waitObservable()
 
     }
 
@@ -40,19 +40,26 @@ class SuperHeroFragment : Fragment() {
         forwardButton.setOnClickListener {
             rlSuperHero.visibility = View.VISIBLE
             viewModel.nextHero()
-            Handler().postDelayed({
-
-                observeViewModel()
-            }, 3000)
+             waitObservable()
         }
 
         backButton.setOnClickListener {
             rlSuperHero.visibility = View.VISIBLE
             viewModel.backHero()
-            Handler().postDelayed({
-                observeViewModel()
-            }, 3000)
+           waitObservable()
         }
+
+        cardSuperHero.setOnClickListener {
+            val superhero = viewModel.superhero.value
+            val bundle = bundleOf("superhero" to superhero)
+            findNavController().navigate(R.id.superheroDetailFragmentDialog, bundle)
+        }
+    }
+
+    fun waitObservable(){
+        Handler().postDelayed({
+            observeViewModel()
+        }, 3000)
     }
 
     @SuppressLint("RestrictedApi")

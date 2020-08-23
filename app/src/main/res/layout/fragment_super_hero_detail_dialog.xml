@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorPrimaryDark">
         <Toolbar
-            android:id="@+id/toolbarConference"
+            android:id="@+id/toolbarSuperhero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.appbar.AppBarLayout>
@@ -33,6 +33,7 @@
                     android:layout_height="200dp">
 
                     <ImageView
+                        android:id="@+id/imageHero"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop" />
@@ -42,7 +43,7 @@
                         android:background="@color/colorPrimary"
                         android:alpha="0.5"/>
                     <TextView
-                        android:id="@+id/tvItemScheduleTituloConferencia"
+                        android:id="@+id/tvNameDetailDialog"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/heroName"
@@ -640,7 +641,7 @@
                                 android:textSize="@dimen/itemSubTitulo"
                                 android:layout_toEndOf="@id/tvOccupation"
                                 android:ellipsize="end"
-                                android:lines="1"/>
+                                android:lines="3"/>
                         </RelativeLayout>
 
                         <RelativeLayout
@@ -715,7 +716,7 @@
                                 android:textSize="@dimen/itemSubTitulo"
                                 android:layout_toEndOf="@id/tvRelatives"
                                 android:ellipsize="end"
-                                android:lines="1"/>
+                                android:lines="3"/>
                         </RelativeLayout>
                         <RelativeLayout
                             android:layout_width="match_parent"

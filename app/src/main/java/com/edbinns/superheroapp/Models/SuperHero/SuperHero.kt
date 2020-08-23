@@ -1,6 +1,8 @@
 package com.edbinns.superheroapp.Models.SuperHero
 
-data class SuperHero(
+import java.io.Serializable
+
+data class SuperHero (
     val appearance: Appearance,
     val biography: Biography,
     val connections: Connections,
@@ -10,4 +12,4 @@ data class SuperHero(
     val powerstats: Powerstats,
     val response: String,
     val work: Work
-)
+) : Serializable
