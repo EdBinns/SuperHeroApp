@@ -1,6 +1,7 @@
 package com.edbinns.superheroapp.View.UI.Fragments
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.edit
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -79,4 +81,5 @@ class SuperHeroFragment : Fragment() {
             Log.d("Actual hero: ", "${viewModel.idHero.value}")
         })
     }
+
 }

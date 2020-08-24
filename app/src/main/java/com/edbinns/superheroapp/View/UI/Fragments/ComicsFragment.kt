@@ -1,6 +1,7 @@
 package com.edbinns.superheroapp.View.UI.Fragments
 
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -41,7 +42,9 @@ class ComicsFragment : Fragment() , ItemListener<Comic> {
             adapter = comicAdapter
         }
 
-        observeViewModel()
+        Handler().postDelayed({
+            observeViewModel()
+        }, 1500)
     }
 
 
@@ -60,6 +63,4 @@ class ComicsFragment : Fragment() , ItemListener<Comic> {
         val bundle = bundleOf("comic" to item)
         findNavController().navigate(R.id.comicsDetailFragmentDialog, bundle)
     }
-
-
 }

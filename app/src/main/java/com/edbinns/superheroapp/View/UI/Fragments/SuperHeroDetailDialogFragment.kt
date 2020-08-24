@@ -1,5 +1,7 @@
 package com.edbinns.superheroapp.View.UI.Fragments
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,9 +10,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.ViewModelProviders
 import com.edbinns.superheroapp.Models.Comics.Comic
 import com.edbinns.superheroapp.Models.SuperHero.*
 import com.edbinns.superheroapp.R
+import com.edbinns.superheroapp.ViewModel.FavoritesViewModel
+import com.edbinns.superheroapp.ViewModel.SuperHeroViewModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_comics_detail_dialog.*
 import kotlinx.android.synthetic.main.fragment_super_hero.*
@@ -18,6 +23,8 @@ import kotlinx.android.synthetic.main.fragment_super_hero_detail_dialog.*
 
 
 class SuperHeroDetailDialogFragment : DialogFragment() {
+
+    private lateinit var viewModel : FavoritesViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +38,7 @@ class SuperHeroDetailDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProviders.of(this).get(FavoritesViewModel::class.java)
         toolbarSuperhero.navigationIcon = ContextCompat.getDrawable(view.context, R.drawable.ic_close)
         toolbarSuperhero.setTitleTextColor(Color.WHITE)
         toolbarSuperhero.setNavigationOnClickListener {
@@ -39,6 +47,7 @@ class SuperHeroDetailDialogFragment : DialogFragment() {
 
         val superhero  = arguments?.getSerializable("superhero") as SuperHero
 
+        listener(superhero)
         Picasso.get().load(superhero.image.url).into(imageHero)
         tvNameDetailDialog.text = superhero.name
         setBiography(superhero.biography)
@@ -90,8 +99,14 @@ class SuperHeroDetailDialogFragment : DialogFragment() {
         tvGroupAffiliationComplete.text = connections.groupAffiliation
     }
 
-    private fun listener(){
 
+    @SuppressLint("CommitPrefEdits")
+    private fun listener(superhero:SuperHero){
+        btnFavorite.setOnClickListener {
+            val prefs = this.activity?.getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+            val email = prefs?.getString("email", "-")
+            viewModel.setFavoriteHero(FavoritesSuperhero(email, superhero.id,superhero.image.url, superhero.name,superhero.biography.publisher))
+        }
     }
 
     override fun onStart() {

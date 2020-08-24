@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="5dp">
                 <ImageView
-                    android:id="@+id/itemHeroImage"
+                    android:id="@+id/itemHeroImageFavorite"
                     android:layout_width="80dp"
                     android:layout_height="60dp"
                     android:scaleType="centerCrop"/>
@@ -47,7 +47,7 @@
                 android:textSize="@dimen/itemTitulo" />
 
             <TextView
-                android:id="@+id/tvItemPublisher"
+                android:id="@+id/tvItemPublisherFavorite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"

@@ -7,6 +7,9 @@
     <dimen name="itemTitulo">25sp</dimen>
     <dimen name="itemSubTitulo">18sp</dimen>
 
+    <dimen name="itemComicTitle">20sp</dimen>
+    <dimen name="itemComicSubTitle">14sp</dimen>
+
     <dimen name="dimesmargine">15sp</dimen>
     <dimen name="dimesmargintop">8sp</dimen>
 

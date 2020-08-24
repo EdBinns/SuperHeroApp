@@ -39,13 +39,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Title"
-                    android:textSize="@dimen/itemTitulo"
+                    android:textSize="@dimen/itemComicTitle"
                     android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold"
                     android:ellipsize="end"
-                    android:lines="1"
+                    android:lines="2"
                     android:layout_alignParentTop="true"
                     android:layout_centerInParent="true"
+                    android:layout_margin="4dp"
                     />
 
                 <TextView
@@ -53,61 +54,63 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Publisher"
-                    android:textSize="@dimen/itemSubTitulo"
+                    android:textSize="@dimen/itemComicSubTitle"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="normal"
                     android:ellipsize="end"
                     android:lines="1"
                     android:layout_below="@id/tvTitleComic"
                     android:layout_centerInParent="true"
+                    android:layout_margin="2dp"
                     />
 
                 <TextView
                     android:id="@+id/tvDescriptionComic"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Description"
-                    android:textSize="@dimen/itemSubTitulo"
+                    android:textSize="@dimen/itemComicSubTitle"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="normal"
                     android:ellipsize="end"
-                    android:lines="3"
                     android:layout_below="@id/tvPublisherComic"
                     android:layout_centerInParent="true"
+                    android:layout_margin="14dp"
                     />
 
                 <TextView
                     android:id="@+id/tvCreatorsComic"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Creators"
-                    android:textSize="@dimen/itemSubTitulo"
+                    android:textSize="@dimen/itemComicSubTitle"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="normal"
                     android:ellipsize="end"
-                    android:lines="1"
                     android:layout_below="@id/tvDescriptionComic"
                     android:layout_centerInParent="true"
+                    android:layout_margin="14dp"
                     />
                 <TextView
                     android:id="@+id/tvDateComic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="dd/mm/yy"
-                    android:textSize="@dimen/itemSubTitulo"
+                    android:textSize="@dimen/itemComicSubTitle"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="normal"
                     android:ellipsize="end"
                     android:lines="1"
                     android:layout_below="@id/tvCreatorsComic"
                     android:layout_centerInParent="true"
+                    android:layout_margin="2dp"
                     />
                 <TextView
                     android:id="@+id/tvPriceComic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$0.00"
-                    android:textSize="@dimen/itemSubTitulo"
+                    android:textSize="@dimen/itemComicSubTitle"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="normal"
                     android:ellipsize="end"
@@ -116,10 +119,6 @@
                     android:layout_centerInParent="true"
                     />
             </RelativeLayout>
-
         </androidx.cardview.widget.CardView>
-
-
     </FrameLayout>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

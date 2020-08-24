@@ -48,9 +48,9 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="30dp"
                     android:ellipsize="end"
-                    android:hint="@string/heroName"
+                    android:text="@string/heroName"
                     android:lines="1"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/itemTitulo"
                     android:textStyle="bold" />
 

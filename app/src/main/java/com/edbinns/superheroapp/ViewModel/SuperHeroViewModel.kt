@@ -1,9 +1,12 @@
 package com.edbinns.superheroapp.ViewModel
 
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.edbinns.superheroapp.Models.SuperHero.FavoritesSuperhero
 import com.edbinns.superheroapp.Models.SuperHero.SuperHero
 import com.edbinns.superheroapp.NetWork.Repositorys.SuperHeroReporitory
+import com.edbinns.superheroapp.R
 
 class SuperHeroViewModel : ViewModel() {
 
@@ -23,7 +26,7 @@ class SuperHeroViewModel : ViewModel() {
         superhero = superHeroReporitory.getSuperHero()
     }
 
-    private fun callSuperhero() {
+    fun callSuperhero() {
         val id = idHero.value.toString()
         superHeroReporitory.callSuperHeroApi(id)
     }
@@ -41,4 +44,5 @@ class SuperHeroViewModel : ViewModel() {
         }
         refreshHero()
     }
+
 }

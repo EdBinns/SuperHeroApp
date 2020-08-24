@@ -25,7 +25,7 @@
                 android:lines="1"
                 android:text="@string/releaseDate"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/itemSubTitulo" />
+                android:textSize="@dimen/itemComicSubTitle" />
 
         </LinearLayout>
 
@@ -44,7 +44,7 @@
                 android:lines="1"
                 android:text="@string/titleComic"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/itemTitulo" />
+                android:textSize="@dimen/itemComicTitle" />
 
             <TextView
                 android:id="@+id/tvItemPublisher"
@@ -54,7 +54,7 @@
                 android:lines="1"
                 android:text="@string/publisher"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/itemSubTitulo" />
+                android:textSize="@dimen/itemComicSubTitle" />
         </LinearLayout>
     </LinearLayout>
 
