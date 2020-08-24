@@ -6,11 +6,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.edbinns.superheroapp.Models.Comics.Comic
 import com.edbinns.superheroapp.Models.SuperHero.FavoritesSuperhero
 import com.edbinns.superheroapp.R
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_super_hero_detail_dialog.*
 
 class FavoriteHeroesAdapter(val favoritesListener: ItemListener<FavoritesSuperhero>): RecyclerView.Adapter<FavoriteHeroesAdapter.ViewHolder>() {
 

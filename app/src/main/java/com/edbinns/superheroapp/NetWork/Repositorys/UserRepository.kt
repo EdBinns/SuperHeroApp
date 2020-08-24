@@ -24,7 +24,7 @@ class UserRepository {
                 }
 
                 override fun onFailed(exception: Exception) {
-                    Log.e(TAG, "error en setear a un usuario", exception)
+                    Log.e(TAG, "An error has occurred with your registration", exception)
                 }
             })
     }
@@ -36,9 +36,7 @@ class UserRepository {
     fun findUserByID(username: String) {
         firestoreService.getUserByID(username, object : Callback<User> {
             override fun onSuccess(result: User?) {
-                println("Print de repository  ${result?.email}" )
                 user.value = result
-                println("Print de repository value  ${user.value?.name}" )
             }
 
             override fun onFailed(exception: Exception) {

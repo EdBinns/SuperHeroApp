@@ -4,21 +4,19 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.edbinns.superheroapp.Models.Comics.Comic
 import com.edbinns.superheroapp.Models.SuperHero.*
 import com.edbinns.superheroapp.R
+import com.edbinns.superheroapp.View.UI.AlertDialog.MessageFactory
 import com.edbinns.superheroapp.ViewModel.FavoritesViewModel
-import com.edbinns.superheroapp.ViewModel.SuperHeroViewModel
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_comics_detail_dialog.*
-import kotlinx.android.synthetic.main.fragment_super_hero.*
 import kotlinx.android.synthetic.main.fragment_super_hero_detail_dialog.*
 
 
@@ -101,6 +99,15 @@ class SuperHeroDetailDialogFragment : DialogFragment() {
         tvGroupAffiliationComplete.text = connections.groupAffiliation
     }
 
+    fun observeViewModel(){
+        viewModel.message.observe(viewLifecycleOwner, Observer<String> {
+            showAlert(it,MessageFactory.TYPE_INFO)
+        })
+    }
+    fun showAlert(message : String?, type : String){
+        val error = MessageFactory().getDialog(type,context!!,message)
+        error.show()
+    }
 
     @SuppressLint("CommitPrefEdits")
     private fun listener(superhero:SuperHero){
@@ -108,6 +115,8 @@ class SuperHeroDetailDialogFragment : DialogFragment() {
             val prefs = this.activity?.getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
             val email = prefs?.getString("email", "-")
             viewModel.setFavoriteHero(FavoritesSuperhero(email, superhero.id,superhero.image.url, superhero.name,superhero.biography.publisher))
+            Handler().postDelayed({ observeViewModel()}, 1500)
+
         }
     }
 

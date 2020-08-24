@@ -13,10 +13,15 @@ class ComicsRepository {
 
     private val comics : MutableLiveData<List<Comic>> = MutableLiveData()
 
+    private val message : MutableLiveData<String> = MutableLiveData()
+
     fun getListComics() : MutableLiveData<List<Comic>>{
         return comics
     }
 
+    fun getMessage(): MutableLiveData<String>{
+        return message
+    }
 
     fun callNewComicsAPI(){
         val client = ClientService.getInstance()
@@ -30,6 +35,7 @@ class ComicsRepository {
             }
 
             override fun onFailure(call: Call<ComicResponse>, t: Throwable) {
+                message.value = "An error occurred while loading the comics"
                 Log.e("ERROR: ", t.message)
                 t.stackTrace
             }

@@ -7,9 +7,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.edbinns.superheroapp.Models.Comics.Comic
 import com.edbinns.superheroapp.R
-import kotlinx.android.synthetic.main.fragment_comics_detail_dialog.view.*
-import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.collections.ArrayList
 
 class ComicsAdapter(val comicListener: ItemListener<Comic>) : RecyclerView.Adapter<ComicsAdapter.ViewHolder>() {

@@ -50,13 +50,4 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
-
-    /**
-     * buton.setonClick{
-     *
-     *
-     *
-     *
-     *
-     */
 }

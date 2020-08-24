@@ -4,13 +4,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.edbinns.superheroapp.Models.Comics.Comic
 import com.edbinns.superheroapp.NetWork.Repositorys.ComicsRepository
-import com.edbinns.superheroapp.View.Adapters.ItemListener
+
 
 class ComicsViewModel : ViewModel() {
 
     private val comicsRepository = ComicsRepository()
     var comics : MutableLiveData<List<Comic>> = MutableLiveData()
     var isLoading = MutableLiveData<Boolean>()
+    var message = MutableLiveData<String>()
 
     fun refresh(){
         callComics()
@@ -23,6 +24,7 @@ class ComicsViewModel : ViewModel() {
     }
 
     fun processFinished() {
+        message = comicsRepository.getMessage()
         isLoading.value = true
     }
 

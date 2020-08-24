@@ -4,7 +4,6 @@ import android.content.ContentValues
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.edbinns.superheroapp.Models.SuperHero.FavoritesSuperhero
-import com.edbinns.superheroapp.Models.SuperHero.SuperHero
 import com.edbinns.superheroapp.NetWork.Constants
 import com.edbinns.superheroapp.NetWork.Firebase.Callback
 import com.edbinns.superheroapp.NetWork.Firebase.FirestoreService
@@ -25,6 +24,7 @@ class FavoritesRepository {
                 }
 
                 override fun onFailed(exception: Exception) {
+                    message.value = "An error occurred while adding to favorites"
                     Log.e(ContentValues.TAG, "Could not add to favorites list", exception)
                 }
             })
@@ -42,9 +42,13 @@ class FavoritesRepository {
             }
 
             override fun onFailed(exception: Exception) {
+                message.value = "An error occurred while loading the favorites list"
                 Log.e(ContentValues.TAG, "Error with get favorites list", exception)
             }
-
         })
+    }
+
+    fun getMessage():  MutableLiveData<String>{
+        return message
     }
 }

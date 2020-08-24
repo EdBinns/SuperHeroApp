@@ -1,6 +1,6 @@
 package com.edbinns.superheroapp.View.UI.Fragments
 
-import android.graphics.Color
+
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
@@ -16,9 +16,8 @@ import com.edbinns.superheroapp.Models.Comics.Comic
 import com.edbinns.superheroapp.R
 import com.edbinns.superheroapp.View.Adapters.ComicsAdapter
 import com.edbinns.superheroapp.View.Adapters.ItemListener
+import com.edbinns.superheroapp.View.UI.AlertDialog.MessageFactory
 import com.edbinns.superheroapp.ViewModel.ComicsViewModel
-import kotlinx.android.synthetic.main.activity_log_in.*
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_comics.*
 
 
@@ -59,6 +58,14 @@ class ComicsFragment : Fragment() , ItemListener<Comic> {
             if(it != null)
                 rlComics.visibility = View.INVISIBLE
         })
+        viewModel.message.observe(viewLifecycleOwner, Observer<String> {
+            showAlert(viewModel.message.value, MessageFactory.TYPE_INFO)
+        })
+    }
+
+    fun showAlert(message : String?, type : String){
+        val error = MessageFactory().getDialog(type,context!!,message)
+        error.show()
     }
 
     override fun onItemClicked(item: Comic, position: Int) {

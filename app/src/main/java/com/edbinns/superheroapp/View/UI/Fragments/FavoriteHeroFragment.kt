@@ -1,7 +1,6 @@
 package com.edbinns.superheroapp.View.UI.Fragments
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -17,16 +16,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.edbinns.superheroapp.Models.SuperHero.FavoritesSuperhero
 import com.edbinns.superheroapp.Models.SuperHero.SuperHero
 import com.edbinns.superheroapp.R
-import com.edbinns.superheroapp.View.Adapters.ComicsAdapter
 import com.edbinns.superheroapp.View.Adapters.FavoriteHeroesAdapter
 import com.edbinns.superheroapp.View.Adapters.ItemListener
+import com.edbinns.superheroapp.View.UI.AlertDialog.MessageFactory
 import com.edbinns.superheroapp.ViewModel.FavoritesViewModel
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_comics.*
 import kotlinx.android.synthetic.main.fragment_favorite_hero.*
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
-import java.util.concurrent.TimeUnit
 
 
 class FavoriteHeroFragment : Fragment(),ItemListener<FavoritesSuperhero>  {
@@ -73,8 +67,16 @@ class FavoriteHeroFragment : Fragment(),ItemListener<FavoritesSuperhero>  {
         viewModel.superhero.observe(viewLifecycleOwner, Observer<SuperHero> {
             Log.d("Obtained hero ", it.id)
         })
+
+        viewModel.message.observe(viewLifecycleOwner, Observer<String> {
+            showAlert(it, MessageFactory.TYPE_INFO)
+        })
     }
 
+    fun showAlert(message : String?, type : String){
+        val error = MessageFactory().getDialog(type,context!!,message)
+        error.show()
+    }
     override fun onItemClicked(item: FavoritesSuperhero, position: Int) {
         viewModel.callSuperHero(item.idHero)
         Handler().postDelayed({

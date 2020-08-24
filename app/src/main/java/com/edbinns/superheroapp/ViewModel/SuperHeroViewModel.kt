@@ -1,12 +1,9 @@
 package com.edbinns.superheroapp.ViewModel
 
-import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.edbinns.superheroapp.Models.SuperHero.FavoritesSuperhero
 import com.edbinns.superheroapp.Models.SuperHero.SuperHero
 import com.edbinns.superheroapp.NetWork.Repositorys.SuperHeroReporitory
-import com.edbinns.superheroapp.R
 
 class SuperHeroViewModel : ViewModel() {
 
@@ -15,6 +12,7 @@ class SuperHeroViewModel : ViewModel() {
     var idHero = MutableLiveData<Int>()
     var superhero = MutableLiveData<SuperHero>()
     var isSelect = MutableLiveData<Boolean>()
+    var message = MutableLiveData<String>()
 
     init {
         isSelect.value = false
@@ -35,6 +33,7 @@ class SuperHeroViewModel : ViewModel() {
         idHero.value = idHero.value?.plus(1)
         isSelect.value = true
         refreshHero()
+        message = superHeroReporitory.getMessage()
     }
 
     fun backHero() {
@@ -43,6 +42,7 @@ class SuperHeroViewModel : ViewModel() {
             isSelect.value = false
         }
         refreshHero()
+        message = superHeroReporitory.getMessage()
     }
 
 }

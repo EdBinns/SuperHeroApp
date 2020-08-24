@@ -1,5 +1,6 @@
 package com.edbinns.superheroapp.View.UI.Activitys
 
+import  com.edbinns.superheroapp.View.UI.AlertDialog.MessageFactory
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
@@ -8,12 +9,12 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.View
-import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.edbinns.superheroapp.Models.User.User
 import com.edbinns.superheroapp.NetWork.Constants
 import com.edbinns.superheroapp.R
+import com.edbinns.superheroapp.View.UI.AlertDialog.MessageFactory.Companion.TYPE_INFO
 import com.edbinns.superheroapp.ViewModel.UserViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -48,6 +49,7 @@ class LogInActivity : AppCompatActivity() {
         btnLogIn.setOnClickListener {
 
             val email = etEmail.text.toString()
+
             val password = etPassword.text.toString()
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 userViewModel.findUserByID(email)
@@ -98,13 +100,8 @@ class LogInActivity : AppCompatActivity() {
         }
     }
     fun showAlert(message : String){
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Error")
-        builder.setMessage(message)
-        builder.setPositiveButton("Aceptar", null)
-        val dialog : AlertDialog = builder.create()
-        dialog.show()
-
+        val error = MessageFactory().getDialog(TYPE_INFO,this,message)
+        error.show()
     }
 
     fun starApp(email:  String, providers : String){

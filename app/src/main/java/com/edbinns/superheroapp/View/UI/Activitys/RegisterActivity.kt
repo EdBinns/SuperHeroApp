@@ -7,12 +7,12 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.View
-import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.edbinns.superheroapp.Models.User.User
 import com.edbinns.superheroapp.NetWork.Constants.BASIC_AUHT
 import com.edbinns.superheroapp.R
+import com.edbinns.superheroapp.View.UI.AlertDialog.MessageFactory
 import com.edbinns.superheroapp.ViewModel.UserViewModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_register.*
@@ -63,12 +63,8 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     fun showAlert(message : String){
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Error")
-        builder.setMessage(message)
-        builder.setPositiveButton("Aceptar", null)
-        val dialog : AlertDialog = builder.create()
-        dialog.show()
+        val error = MessageFactory().getDialog(MessageFactory.TYPE_INFO,this,message)
+        error.show()
     }
 
     fun starApp(email:  String, providers : String){

@@ -1,7 +1,6 @@
 package com.edbinns.superheroapp.ViewModel
 
-import android.os.Handler
-import android.provider.ContactsContract
+
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.edbinns.superheroapp.Models.SuperHero.FavoritesSuperhero
@@ -16,6 +15,7 @@ class FavoritesViewModel: ViewModel() {
     var favoritesList : MutableLiveData<List<FavoritesSuperhero>> = MutableLiveData()
     var superhero = MutableLiveData<SuperHero>()
     var isLoading = MutableLiveData<Boolean>()
+    var message = MutableLiveData<String>()
 
     fun setFavoriteHero(favoritesSuperhero: FavoritesSuperhero){
         favoritesRepository.setFavoriteHeroInFirebase(favoritesSuperhero)
@@ -32,6 +32,7 @@ class FavoritesViewModel: ViewModel() {
     }
 
     private fun processFinished() {
+        message = favoritesRepository.getMessage()
         isLoading.value = true
     }
 
