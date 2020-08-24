@@ -2,6 +2,7 @@ package com.edbinns.superheroapp.View.UI.Fragments
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -18,6 +19,7 @@ import com.edbinns.superheroapp.Models.SuperHero.SuperHero
 import com.edbinns.superheroapp.R
 import com.edbinns.superheroapp.ViewModel.SuperHeroViewModel
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_super_hero.*
 
 class SuperHeroFragment : Fragment() {
@@ -31,6 +33,7 @@ class SuperHeroFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         viewModel = ViewModelProviders.of(this).get(SuperHeroViewModel::class.java)
         listener()
         viewModel.refreshHero()

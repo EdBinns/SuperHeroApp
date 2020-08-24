@@ -1,6 +1,7 @@
 package com.edbinns.superheroapp.View.UI.Activitys
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.Navigation
@@ -43,7 +44,10 @@ class MainActivity : AppCompatActivity() {
             prefs.clear()
             prefs.apply()
             FirebaseAuth.getInstance().signOut()
-            onBackPressed()
+            val intent = Intent(this, LogInActivity::class.java)
+            startActivity(intent)
+            finish()
+
         }
     }
 

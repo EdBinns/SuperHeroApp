@@ -38,7 +38,9 @@ class SuperHeroDetailDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         viewModel = ViewModelProviders.of(this).get(FavoritesViewModel::class.java)
+        toolbarSuperhero.title = "Characteristics of the SuperHeroe"
         toolbarSuperhero.navigationIcon = ContextCompat.getDrawable(view.context, R.drawable.ic_close)
         toolbarSuperhero.setTitleTextColor(Color.WHITE)
         toolbarSuperhero.setNavigationOnClickListener {

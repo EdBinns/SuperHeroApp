@@ -26,6 +26,8 @@ class ComicsDetailDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        toolbarComic.title = "Comic Details"
         toolbarComic.navigationIcon = ContextCompat.getDrawable(view.context, R.drawable.ic_close)
         toolbarComic.setTitleTextColor(Color.WHITE)
         toolbarComic.setNavigationOnClickListener {

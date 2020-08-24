@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/navHeroFragment"
-        android:title="Heroes"
+        android:title="Super Hero"
         android:icon="@drawable/hero"/>
     <item
         android:id="@+id/navFavoriteHeroFragment"
-        android:title="Heroes favoritos"
+        android:title="Favorites"
         android:icon="@drawable/favorite" />
     <item
         android:id="@+id/navComicsFragment"
-        android:title="Comics"
+        android:title="New Comics"
         android:icon="@drawable/comic" />
 
 </menu>

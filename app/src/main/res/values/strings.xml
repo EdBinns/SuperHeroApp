@@ -6,18 +6,18 @@
     <string name="prefs_file">com.edbinns.superheroapp.PREFERENCE_FILE_KEY</string>
 
 
-    <string name="name">Nombre Completo</string>
-    <string name="username">Correo</string>
-    <string name="password">Contraseña</string>
-    <string name="register">Registrarse</string>
-    <string name="singin">Iniciar sesión</string>
+    <string name="name">Name</string>
+    <string name="username">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Sig nin</string>
+    <string name="singin">Log In</string>
 
 
-    <string name="heroName">Nombre del héroe</string>
-    <string name="hero">Superhéroe</string>
+    <string name="heroName">hero name</string>
+    <string name="hero">Super Hero</string>
     <string name="publisher">Marvel/DC</string>
-    <string name="alignment">Bueno/Malo</string>
+    <string name="alignment">good/bad</string>
     <string name="comic">Comic Description</string>
     <string name="releaseDate">dd/mm/yy</string>
-    <string name="titleComic">Nombre del comic</string>
+    <string name="titleComic">comic name</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.edbinns.superheroapp.View.UI.Fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
@@ -17,6 +18,7 @@ import com.edbinns.superheroapp.View.Adapters.ComicsAdapter
 import com.edbinns.superheroapp.View.Adapters.ItemListener
 import com.edbinns.superheroapp.ViewModel.ComicsViewModel
 import kotlinx.android.synthetic.main.activity_log_in.*
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_comics.*
 
 

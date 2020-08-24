@@ -1,6 +1,7 @@
 package com.edbinns.superheroapp.View.UI.Fragments
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -20,6 +21,7 @@ import com.edbinns.superheroapp.View.Adapters.ComicsAdapter
 import com.edbinns.superheroapp.View.Adapters.FavoriteHeroesAdapter
 import com.edbinns.superheroapp.View.Adapters.ItemListener
 import com.edbinns.superheroapp.ViewModel.FavoritesViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_comics.*
 import kotlinx.android.synthetic.main.fragment_favorite_hero.*
 import kotlinx.coroutines.delay
