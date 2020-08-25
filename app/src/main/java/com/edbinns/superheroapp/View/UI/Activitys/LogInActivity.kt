@@ -47,31 +47,19 @@ class LogInActivity : AppCompatActivity() {
         }
 
         btnLogIn.setOnClickListener {
-
             val email = etEmail.text.toString()
-
             val password = etPassword.text.toString()
             if (email.isNotEmpty() && password.isNotEmpty()) {
-                userViewModel.findUserByID(email)
-                rlProgressBar.visibility = View.VISIBLE
-                Handler().postDelayed({
-                    val user = userViewModel.user.value
-                    println("Correo ${user?.email}")
-                    if (user != null) {
-                        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-                            .addOnCompleteListener {
-                                if (it.isSuccessful) {
-                                   observeViewModel()
-                                    starApp(it.result?.user?.email.toString() ?: "", Constants.BASIC_AUHT)
-                                } else {
-                                   observeViewModel()
-                                    showAlert("A problem has occurred with your log in ${it.exception?.message}")
-                                }
-                            }
-                    } else {
-                        showAlert("You do not have an account registered in the app yet")
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            observeViewModel()
+                            starApp(it.result?.user?.email.toString() ?: "", Constants.BASIC_AUHT)
+                        } else {
+                            observeViewModel()
+                            showAlert("A problem has occurred with your log in ${it.exception?.message}")
+                        }
                     }
-                }, 5000)
             }
         }
 
@@ -115,15 +103,13 @@ class LogInActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
+        rlProgressBar.visibility = View.VISIBLE
         if(requestCode == GOOGLE_SIGN_IN){
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
-                rlProgressBar.visibility = View.VISIBLE
                 val account = task.getResult(ApiException::class.java)
                 if (account != null) {
                     val credential = GoogleAuthProvider.getCredential(account.idToken, null)
-
                     FirebaseAuth.getInstance().signInWithCredential(credential)
                         .addOnCompleteListener {
                             if (it.isSuccessful) {

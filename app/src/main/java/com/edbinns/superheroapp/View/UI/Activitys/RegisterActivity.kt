@@ -34,30 +34,21 @@ class RegisterActivity : AppCompatActivity() {
             val email = etEmailRegister.text.toString()
             val password = etPasswordRegister.text.toString()
             val name = etNameRegister.text.toString()
-            if(email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty()){
-                if(password.length >= 6){
-                    userViewModel.findUserByID(email)
-                    Handler().postDelayed({
-                        val user = userViewModel.user.value
-                        if (user != null) {
-                            observeViewModel()
-                            showAlert("There is already an account registered to this email $email")
-                        } else {
-                            FirebaseAuth.getInstance()
-                                .createUserWithEmailAndPassword(email, password)
-                                .addOnCompleteListener {
-                                    if (it.isSuccessful) {
-                                        observeViewModel()
-                                        userViewModel.registerUser(email, password, name, BASIC_AUHT)
-                                        starApp(it.result?.user?.email.toString() ?: "", BASIC_AUHT)
-                                    } else {
-                                        observeViewModel()
-                                        showAlert("A problem has occurred with your registration")
-                                    }
-                                }
+            if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty()) {
+                if (password.length >= 6) {
+                    FirebaseAuth.getInstance()
+                        .createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener {
+                            if (it.isSuccessful) {
+                                observeViewModel()
+                                userViewModel.registerUser(email, password, name, BASIC_AUHT)
+                                starApp(it.result?.user?.email.toString() ?: "", BASIC_AUHT)
+                            } else {
+                                observeViewModel()
+                                showAlert("A problem has occurred with your registration")
+                            }
                         }
-                    }, 5000)
-                } else showAlert("The password must be greater than or equal to 6 characters")
+                }
             }
         }
     }

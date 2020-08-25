@@ -17,7 +17,7 @@ class FavoritesRepository {
 
 
     fun setFavoriteHeroInFirebase(favorite : FavoritesSuperhero){
-        firestoreService.setDocument(favorite, Constants.FAVORITES_COLLECTION_NAME,"${favorite.emailUser} - ${favorite.nombre}", object : Callback<Void> {
+        firestoreService.setDocument(favorite, Constants.FAVORITES_COLLECTION_NAME,"${favorite.emailUser} - ${favorite.nombre}  - ${favorite.idHero}", object : Callback<Void> {
                 override fun onSuccess(result: Void?) {
                     message.value = "Superhero added to favorites list"
                     Log.d("Success", "Superhero added to favorites list")
