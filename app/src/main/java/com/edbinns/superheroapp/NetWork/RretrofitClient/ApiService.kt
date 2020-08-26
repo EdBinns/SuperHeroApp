@@ -13,4 +13,5 @@ interface ApiService {
 
     @GET("comics/v1/new")
     fun getNewComics() :Call<ComicResponse>?
+
 }

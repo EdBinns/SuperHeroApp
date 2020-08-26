@@ -12,5 +12,9 @@
         android:id="@+id/navComicsFragment"
         android:title="New Comics"
         android:icon="@drawable/comic" />
+    <item
+        android:id="@+id/navAboutFragment"
+        android:title="About"
+        android:icon="@drawable/ic_baseline_info_24"/>
 
 </menu>

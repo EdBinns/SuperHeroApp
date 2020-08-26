@@ -48,11 +48,22 @@
         tools:layout="@layout/fragment_comics">
 
         <action
+            android:id="@+id/action_ComicsFragment_to_About_fragment"
+            app:destination="@+id/navAboutFragment"
+            />
+        <action
             android:id="@+id/action_ComicsFragment_to_ComicsDetailDialogFragment"
             app:destination="@+id/comicsDetailFragmentDialog"
             />
     </fragment>
 
+    <fragment
+        android:id="@+id/navAboutFragment"
+        android:name="com.edbinns.superheroapp.View.UI.Fragments.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about">
+
+    </fragment>
     <dialog
         android:id="@+id/superheroDetailFragmentDialog"
         android:name="com.edbinns.superheroapp.View.UI.Fragments.SuperHeroDetailDialogFragment"
