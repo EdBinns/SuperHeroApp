@@ -1,6 +1,7 @@
 package com.edbinns.superheroapp.View.UI.Fragments
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -33,6 +34,7 @@ class SuperHeroFragment : Fragment() {
 
         viewModel = ViewModelProviders.of(this).get(SuperHeroViewModel::class.java)
         listener()
+        loadLastSeenHero()
         viewModel.refreshHero()
         waitObservable()
 
@@ -64,7 +66,7 @@ class SuperHeroFragment : Fragment() {
         }, 3000)
     }
 
-    @SuppressLint("RestrictedApi")
+    @SuppressLint("RestrictedApi", "CommitPrefEdits")
     fun observeViewModel() {
         viewModel.superhero.observe(viewLifecycleOwner, Observer<SuperHero> {superhero ->
             tvNameHero.text = superhero.name
@@ -77,7 +79,10 @@ class SuperHeroFragment : Fragment() {
             else backButton.visibility = View.INVISIBLE
         })
 
-        viewModel.idHero.observe(this, Observer <Int>{
+        viewModel.idHero.observe(viewLifecycleOwner, Observer <Int>{
+            val prefs = this.activity?.getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)?.edit()
+            prefs?.putInt("lastHero",viewModel.idHero.value!!)
+            prefs?.apply()
             Log.d("Actual hero: ", "${viewModel.idHero.value}")
         })
         viewModel.message.observe(viewLifecycleOwner, Observer<String> {
@@ -89,4 +94,13 @@ class SuperHeroFragment : Fragment() {
         error.show()
     }
 
+
+    fun loadLastSeenHero() {
+        val prefs = this.activity?.getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+        val id = prefs?.getInt("lastHero", 1)
+        viewModel.idHero.value = id
+        if(id != 1){
+            viewModel.isSelect.value = true
+        }
+    }
 }
