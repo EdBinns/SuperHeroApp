@@ -31,7 +31,7 @@ Sección de los superhéroes
   
 Sección de los Comics
  -------------
-El usuario en esta sección puede ver todos los nuevos comics que han salido ultimamente, y se da click en alguno  va a poder ver toda su información 
+El usuario en esta sección puede ver todos los nuevos comics que han salido ultimamente, y si da click en algun comic va a poder ver toda su información 
 
   ![](https://github.com/EdBinns/SuperHeroApp/blob/master/app/Imagenes%20app/Screenshot_20200828-202054_SuperHeroApp.jpg)
   
