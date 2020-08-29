@@ -14,11 +14,29 @@ class FavoritesViewModel: ViewModel() {
     private val superHeroReporitory = SuperHeroReporitory()
     var favoritesList : MutableLiveData<List<FavoritesSuperhero>> = MutableLiveData()
     var superhero = MutableLiveData<SuperHero>()
+    var emailUser = MutableLiveData<String>()
     var isLoading = MutableLiveData<Boolean>()
+    var isFavoriteFound = MutableLiveData<Boolean>()
     var message = MutableLiveData<String>()
 
-    fun setFavoriteHero(favoritesSuperhero: FavoritesSuperhero){
+
+    fun setFavoriteHero(favoritesSuperhero: FavoritesSuperhero) {
         favoritesRepository.setFavoriteHeroInFirebase(favoritesSuperhero)
+    }
+
+    fun deleteFavoriteHero(documentID : String){
+        favoritesRepository.deleteFavoriteHeroFromFirebase(documentID)
+    }
+
+    fun getHeroFound() {
+        isFavoriteFound = favoritesRepository.getHeroFound()
+        searchHero()
+    }
+
+    private fun searchHero(){
+
+        val documentID = "${emailUser.value}-${superhero.value?.name}-${superhero.value?.id}"
+        favoritesRepository.searchFavoriteHeroInFirebase(documentID)
     }
 
     fun refresh(email: String?){

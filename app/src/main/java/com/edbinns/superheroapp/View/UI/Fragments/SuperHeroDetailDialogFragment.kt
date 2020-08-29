@@ -3,11 +3,10 @@ package com.edbinns.superheroapp.View.UI.Fragments
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
+import android.media.audiofx.BassBoost
 import android.os.Bundle
 import android.os.Handler
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
@@ -24,6 +23,7 @@ class SuperHeroDetailDialogFragment : DialogFragment() {
 
     private lateinit var viewModel : FavoritesViewModel
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(DialogFragment.STYLE_NORMAL, R.style.FullScreenDialogStyle)
@@ -38,7 +38,12 @@ class SuperHeroDetailDialogFragment : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProviders.of(this).get(FavoritesViewModel::class.java)
-        toolbarSuperhero.title = "Characteristics of the SuperHeroe"
+
+        val prefs = this.activity?.getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+        viewModel.emailUser.value = prefs?.getString("email", "-")
+
+
+        toolbarSuperhero.title = "SuperHeroe Details"
         toolbarSuperhero.navigationIcon = ContextCompat.getDrawable(view.context, R.drawable.ic_close)
         toolbarSuperhero.setTitleTextColor(Color.WHITE)
         toolbarSuperhero.setNavigationOnClickListener {
@@ -46,15 +51,17 @@ class SuperHeroDetailDialogFragment : DialogFragment() {
         }
 
         val superhero  = arguments?.getSerializable("superhero") as SuperHero
-
+        viewModel.superhero.value = superhero
+        viewModel.getHeroFound()
+        observeViewModel()
         listener(superhero)
-        Picasso.get().load(superhero.image.url).into(imageHero)
+        Picasso.get().load(superhero.image?.url).into(imageHero)
         tvNameDetailDialog.text = superhero.name
-        setBiography(superhero.biography)
-        setAppearance(superhero.appearance)
-        setPowerstats(superhero.powerstats)
-        setWork(superhero.work)
-        setConnections(superhero.connections)
+        setBiography(superhero.biography!!)
+        setAppearance(superhero.appearance!!)
+        setPowerstats(superhero.powerstats!!)
+        setWork(superhero.work!!)
+        setConnections(superhero.connections!!)
     }
 
     private fun setBiography(biography: Biography){
@@ -99,29 +106,45 @@ class SuperHeroDetailDialogFragment : DialogFragment() {
         tvGroupAffiliationComplete.text = connections.groupAffiliation
     }
 
+    @SuppressLint("RestrictedApi")
     fun observeViewModel(){
         viewModel.message.observe(viewLifecycleOwner, Observer<String> {
             showAlert(it,MessageFactory.TYPE_INFO)
         })
+
+        viewModel.isFavoriteFound.observe(viewLifecycleOwner, Observer<Boolean>{ isFound ->
+            if (isFound) {
+                btnDelete.visibility = View.VISIBLE
+                btnFavorite.visibility = View.INVISIBLE
+            }
+        })
+        viewModel.emailUser.observe(viewLifecycleOwner, Observer<String> {
+            println("correo en el detail de heroe  $it")
+        })
     }
     fun showAlert(message : String?, type : String){
-        val error = MessageFactory().getDialog(type,context!!,message)
+        val error = MessageFactory().getDialog(type, context!!, message)
         error.show()
     }
 
     @SuppressLint("CommitPrefEdits")
-    private fun listener(superhero:SuperHero){
+    private fun listener(superhero: SuperHero) {
+        observeViewModel()
+
         btnFavorite.setOnClickListener {
-            val prefs = this.activity?.getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
-            val email = prefs?.getString("email", "-")
-            viewModel.setFavoriteHero(FavoritesSuperhero(email, superhero.id,superhero.image.url, superhero.name,superhero.biography.publisher))
-            Handler().postDelayed({ observeViewModel()}, 1500)
+            viewModel.setFavoriteHero(FavoritesSuperhero(viewModel.emailUser.value, superhero.id!!, superhero.image?.url, superhero.name, superhero.biography?.publisher))
+            Handler().postDelayed({ observeViewModel() }, 3000)
 
         }
+        btnDelete.setOnClickListener {
+            viewModel.deleteFavoriteHero("${viewModel.emailUser.value}-${superhero.name}-${ superhero.id}")
+            Handler().postDelayed({ observeViewModel() }, 3000)
+        }
+
     }
 
-    override fun onStart() {
-        super.onStart()
-        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-    }
+override fun onStart() {
+    super.onStart()
+    dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+}
 }

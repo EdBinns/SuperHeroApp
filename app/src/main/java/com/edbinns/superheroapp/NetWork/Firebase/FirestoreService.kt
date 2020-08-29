@@ -38,17 +38,19 @@ class FirestoreService(val firebaseFirestore: FirebaseFirestore) {
             .addOnFailureListener { exception -> callback!!.onFailed(exception) }
     }
 
-    fun listenForUpdates(favorites: List<FavoritesSuperhero>, listener: RealtimeDataListener<FavoritesSuperhero>) {
-        val favoritesReference = firebaseFirestore.collection(FAVORITES_COLLECTION_NAME)
-        for (favorite in favorites) {
-            favoritesReference.document(favorite.emailUser!!).addSnapshotListener { snapshot, e ->
-                if (e != null) {
-                    listener.onError(e)
-                }
-                if (snapshot != null && snapshot.exists()) {
-                    listener.onDataChange(snapshot.toObject(FavoritesSuperhero::class.java)!!)
-                }
-            }
-        }
+    fun deleteFavorite(id: String, callback: Callback<Void>){
+        firebaseFirestore.collection(FAVORITES_COLLECTION_NAME).document(id).delete()
+            .addOnSuccessListener { callback.onSuccess(null) }
+            .addOnFailureListener { exception -> callback.onFailed(exception) }
     }
+
+    fun searchFavorite(id: String, callback: Callback<FavoritesSuperhero>){
+        firebaseFirestore.collection(FAVORITES_COLLECTION_NAME).document(id).get()
+            .addOnSuccessListener { result ->
+                val favoritesList = result.toObject(FavoritesSuperhero::class.java)
+                callback.onSuccess(favoritesList)
+            }
+            .addOnFailureListener{ exception -> callback.onFailed(exception) }
+    }
+
 }

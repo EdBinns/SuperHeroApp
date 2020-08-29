@@ -1,6 +1,6 @@
 package com.edbinns.superheroapp.Models.SuperHero
 
 data class Connections(
-    val groupAffiliation: String?,
-    val relatives: String?
+    var groupAffiliation: String?,
+    var relatives: String?
 )

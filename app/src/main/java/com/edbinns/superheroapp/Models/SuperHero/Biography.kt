@@ -1,11 +1,12 @@
 package com.edbinns.superheroapp.Models.SuperHero
 
-data class Biography(
-    val aliases: List<String>?,
-    val alignment: String?,
-    val alterEgos: String?,
-    val firstAppearance: String?,
-    val fullName: String?,
-    val placeOfbirth: String?,
-    val publisher: String?
-)
+class Biography{
+    var aliases: List<String>? = null
+    var alignment: String? = ""
+    var alterEgos: String? = ""
+    var firstAppearance: String? = ""
+    var fullName: String = ""
+    var placeOfbirth: String? = ""
+    var publisher: String? = ""
+}
+

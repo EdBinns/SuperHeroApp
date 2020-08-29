@@ -21,13 +21,14 @@ import com.edbinns.superheroapp.View.Adapters.ItemListener
 import com.edbinns.superheroapp.View.UI.AlertDialog.MessageFactory
 import com.edbinns.superheroapp.ViewModel.FavoritesViewModel
 import kotlinx.android.synthetic.main.fragment_favorite_hero.*
+import kotlinx.android.synthetic.main.item_favorite_hero.*
 
 
 class FavoriteHeroFragment : Fragment(),ItemListener<FavoritesSuperhero>  {
 
     private lateinit var viewModel : FavoritesViewModel
     private lateinit var favoritesAdapter: FavoriteHeroesAdapter
-    private  var emailUser: String? = null
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -39,8 +40,8 @@ class FavoriteHeroFragment : Fragment(),ItemListener<FavoritesSuperhero>  {
         viewModel = ViewModelProviders.of(this).get(FavoritesViewModel::class.java)
 
         val prefs = this.activity?.getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
-        emailUser = prefs?.getString("email", "-")
-        viewModel.refresh(emailUser)
+        viewModel.emailUser.value = prefs?.getString("email", "-")
+        viewModel.refresh(viewModel.emailUser.value)
 
         favoritesAdapter= FavoriteHeroesAdapter(this)
 
@@ -73,11 +74,13 @@ class FavoriteHeroFragment : Fragment(),ItemListener<FavoritesSuperhero>  {
         })
     }
 
+
     fun showAlert(message : String?, type : String){
         val error = MessageFactory().getDialog(type,context!!,message)
         error.show()
     }
     override fun onItemClicked(item: FavoritesSuperhero, position: Int) {
+        rlFavorites.visibility = View.VISIBLE
         viewModel.callSuperHero(item.idHero)
         Handler().postDelayed({
             observeViewModel()
@@ -85,6 +88,8 @@ class FavoriteHeroFragment : Fragment(),ItemListener<FavoritesSuperhero>  {
             val superhero = viewModel.superhero.value
             val bundle = bundleOf("superhero" to superhero)
             findNavController().navigate(R.id.superheroDetailFragmentDialog, bundle)
+
         }, 4500)
     }
+
 }

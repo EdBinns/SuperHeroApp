@@ -36,7 +36,9 @@ class SuperHeroFragment : Fragment() {
         listener()
         loadLastSeenHero()
         viewModel.refreshHero()
-        waitObservable()
+        Handler().postDelayed({
+            observeViewModel()
+        }, 3000)
 
     }
 
@@ -70,7 +72,7 @@ class SuperHeroFragment : Fragment() {
     fun observeViewModel() {
         viewModel.superhero.observe(viewLifecycleOwner, Observer<SuperHero> {superhero ->
             tvNameHero.text = superhero.name
-            Picasso.get().load(superhero.image.url).into(imageSuperHero)
+            Picasso.get().load(superhero.image?.url).into(imageSuperHero)
             rlSuperHero.visibility = View.INVISIBLE
         })
 

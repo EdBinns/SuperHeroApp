@@ -14,10 +14,11 @@ class FavoritesRepository {
     private var firestoreService: FirestoreService = FirestoreService(FirebaseFirestore.getInstance())
     private val favorites : MutableLiveData<List<FavoritesSuperhero>> = MutableLiveData()
     private val message: MutableLiveData<String> = MutableLiveData()
+    private val isHeroFound : MutableLiveData<Boolean> = MutableLiveData()
 
 
     fun setFavoriteHeroInFirebase(favorite : FavoritesSuperhero){
-        firestoreService.setDocument(favorite, Constants.FAVORITES_COLLECTION_NAME,"${favorite.emailUser} - ${favorite.nombre}  - ${favorite.idHero}", object : Callback<Void> {
+        firestoreService.setDocument(favorite, Constants.FAVORITES_COLLECTION_NAME,"${favorite.emailUser}-${favorite.nombre}-${favorite.idHero}", object : Callback<Void> {
                 override fun onSuccess(result: Void?) {
                     message.value = "Superhero added to favorites list"
                     Log.d("Success", "Superhero added to favorites list")
@@ -28,6 +29,36 @@ class FavoritesRepository {
                     Log.e(ContentValues.TAG, "Could not add to favorites list", exception)
                 }
             })
+    }
+
+    fun deleteFavoriteHeroFromFirebase(documentID : String){
+        firestoreService.deleteFavorite(documentID,object : Callback<Void>{
+            override fun onSuccess(result: Void?) {
+                message.value = "Hero removed from favorites"
+            }
+
+            override fun onFailed(exception: Exception) {
+                message.value = "An error occurred while deleting the hero"
+                Log.e(ContentValues.TAG, "Could not delete hero", exception)
+            }
+
+        } )
+    }
+
+    fun searchFavoriteHeroInFirebase(documentID : String){
+        firestoreService.searchFavorite(documentID, object : Callback<FavoritesSuperhero>{
+            override fun onSuccess(result: FavoritesSuperhero?) {
+                isHeroFound.value = result != null
+            }
+            override fun onFailed(exception: Exception) {
+                message.value = "An error occurred while searching the hero"
+                Log.e(ContentValues.TAG, "Could not search hero", exception)
+            }
+        })
+    }
+
+    fun getHeroFound(): MutableLiveData<Boolean>{
+        return  isHeroFound
     }
 
     fun getFavoritesList() : MutableLiveData<List<FavoritesSuperhero>> {

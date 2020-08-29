@@ -16,6 +16,7 @@ class SuperHeroViewModel : ViewModel() {
 
     init {
         isSelect.value = false
+        idHero.value = 1
     }
 
     fun refreshHero() {
