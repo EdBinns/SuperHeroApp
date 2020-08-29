@@ -3,6 +3,8 @@
 App hecha por un fan  para los fans,esta app permite buscar tu héroe favorito, ver sus estadisticas, biografía, etc. Además lo puedes agregar a una lista de favoritos, la cual vas a poder ver en todo momento, también hay un apartado en el que te muestra los últimos nuevos comics publicados por editoriales como Marvel, DC comics, Dark Horrse comics, entre muchos otros.
 
 Para descargar la app puede ir al siguiente link [Pulse aquí](https://github.com/EdBinns/SuperHeroApp/tree/master/app/release "Pulse aquí")
+
+
 Inicio de sesión 
  -------------
  El usuario tiene dos alternativas para oder crear una cuenta en la app, ya sea registrandose manualmente o con gmail, todo lo relacionado al inicio de sesión esta hecho con  firebase
