@@ -68,7 +68,7 @@ El usuario en esta sección puede ver todos los nuevos comics que han salido ult
 Contribuciones
  -------------
  
- Los fines de esta app son meramemente prácticos, por ende las contribuciones como los pull request son bienvenidos, de esta manera me serviria como feedbak para mejorar, como a su vez aquellas personas que quieran realizar su pull request, yo tambien les daría un poco de feedback, y de esta manera todos podemos crecer un poco mas
+ Los fines de esta app son meramemente prácticos, por ende las contribuciones como los pull request son bienvenidos, de esta manera me serviría como feedbak para mejorar, como a su vez aquellas personas que quieran realizar su pull request, yo tambien les daría un poco de feedback, y de esta manera todos podemos crecer un poco más
 
 
  Referencias
