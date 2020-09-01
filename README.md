@@ -7,7 +7,7 @@ Para descargar la app puede ir al siguiente link [Pulse aquí](https://github.co
 
 Inicio de sesión 
  -------------
- El usuario tiene dos alternativas para oder crear una cuenta en la app, ya sea registrandose manualmente o con gmail, todo lo relacionado al inicio de sesión esta hecho con  firebase
+ El usuario tiene dos alternativas para poder crear una cuenta en la app, ya sea registrandose manualmente o con gmail, todo lo relacionado al inicio de sesión esta hecho con  firebase
  
  ![](https://github.com/EdBinns/SuperHeroApp/blob/master/app/Imagenes%20app/Screenshot_20200828-202241_SuperHeroApp.jpg)
  
@@ -63,6 +63,12 @@ El usuario en esta sección puede ver todos los nuevos comics que han salido ult
 
 - Para traer la información de los héroes se hizo con la ayuda de [SuperHero api](https://superheroapi.com/ "SuperHero api")
 - Para traer la información de los comics se hizo con la ayuda de [Shortboxed API](https://api.shortboxed.com/ "Shortboxed APIs")
+
+
+Contribuciones
+ -------------
+ 
+ Los fines de esta app son meramemente prácticos, por ende las contribuciones como los pull request son bienvenidos, de esta manera me serviria como feedbak para mejorar, como a su vez aquellas personas que quieran realizar su pull request, yo tambien les daría un poco de feedback, y de esta manera todos podemos crecer un poco mas
 
 
  Referencias
