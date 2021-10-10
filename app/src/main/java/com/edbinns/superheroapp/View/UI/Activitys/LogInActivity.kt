@@ -38,6 +38,7 @@ class LogInActivity : AppCompatActivity() {
     }
 
 
+
     fun setUp(){
 
         btnRegisterLogIn.setOnClickListener {
